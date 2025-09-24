@@ -1,0 +1,99 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Liste des tâches{% endblock %}
+
+{% block content %}
+<style>
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 30px;
+    }
+
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .tache-card {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .tache-card h3 {
+        margin-top: 0;
+        color: #2c3e50;
+    }
+
+    .completed {
+        color: green;
+        font-weight: bold;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        background-color: #3498db;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+
+    .btn:hover {
+        background-color: #2980b9;
+    }
+
+    .retour {
+        display: block;
+        margin-top: 30px;
+        text-align: center;
+        color: #555;
+    }
+
+    .tache-container {
+        display: flex;
+        flex-wrap: wrap; /* Permet le retour à la ligne */
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .tache-card {
+        width: 300px; /* ← ajoute ceci ici */
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+</style>
+
+<h1>Liste des tâches</h1>
+
+<div class="tache-container">
+    {% for tache in taches %}
+        <div class="tache-card">
+            <h3>{{ tache.titre }}</h3>
+            <p><strong>Description :</strong> {{ tache.description }}</p>
+
+            <p><strong>Créée le :</strong>{{ tache.date_creation }}</p>
+            <p>
+                {% if tache.complet %} Tache terminée{% else %}Tache en cours{% endif %}
+            </p>
+            <a class="btn" href="{% url 'modifier-tache' tache.id %}">Modifier</a>
+        </div>
+    {% empty %}
+    <p>Aucune tâche pour le moment.</p>
+    {% endfor %}
+</div>
+
+<a class="retour" href="{% url 'home-user' %} ">← Retour à l'accueil</a>
+
+{% endblock %}

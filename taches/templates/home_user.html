@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Accueil des utilisateurs{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+    <div class="card p-4">
+        <h1 class="text-primary">Bienvenue {{ user.username }}</h1>
+        <p class="lead">Vos tâches personnelles :</p>
+
+        {% for tache in taches %}
+            <div class="border p-3 mb-3 rounded">
+                <h5>{{ tache.titre }}</h5>
+                <p>{{ tache.description }}</p>
+                <p class="text-muted">Créée le {{ tache.date_creation }}</p>
+                {% if tache.complet %}
+                    <span class="badge bg-success">Terminée</span>
+                {% else %}
+                    <span class="badge bg-warning text-dark">En cours</span>
+                {% endif %}
+                <p><a href="{% url 'modifier-tache' tache.id%}">Modifier</a>/<a href="{% url 'supprimer-tache' tache.id%}">Supprimer</a>
+            </div>
+        {% empty %}
+            <p>Aucune tâche trouvée.</p>
+        {% endfor %}
+
+        <a class="btn btn-primary" href="{% url 'ajouter-tache' %}">➕ Ajouter une tâche</a>
+        <a class="btn btn-outline-danger" href="{% url 'logout-user' %}">🚪 Déconnexion</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block titre %}Page d'accueil{% endblock %}
+
+{% block content %}
+
+
+<h1>Bienvenu sur notre appli de Gestion des Taches</h1>
+<h2>Optimiser votre temps de toujours memoriser ce que vous devez faire</h2>
+<p><i>Je vous propose une appli web developpé par <mark>Dev Peter</mark></i></p>
+
+<p>Donc, Merci de vous connecter <a href="{% url 'login-user' %}">ici, se connecter</a> si vous avez pas déjà un compte <br>Ou si vous n'avez pas déjà un compte veuillez vous inscrire <a href="{% url 'signup' %}">ici, inscrire</a></p>
+
+{% endblock %}

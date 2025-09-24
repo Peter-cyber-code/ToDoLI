@@ -1,0 +1,12 @@
+
+services:
+  -type: web
+    name: taches-app
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn ToDo.wsgi
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: True 
+      - key: PYTHON_VERSION
+        value: "3.10"
