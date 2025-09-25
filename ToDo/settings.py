@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-x@rb76z=#n=eck+85ipu_q19ofzkq^o885t+z6_4y7r-aap^-)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.onrender.com']
 
 
 # Application definition
@@ -66,8 +66,6 @@ WSGI_APPLICATION = 'ToDo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-import dj_database_url 
 
 DATABASES = {
     'default': {
