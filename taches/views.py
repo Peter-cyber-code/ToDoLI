@@ -11,6 +11,7 @@ from taches.serializers import TacheSerializer
 def home(request):
     return render(request, 'home.html')
 
+@login_required
 def home_user(request):
     taches = Tache.objects.filter(utilisateur=request.user)
     return render(request, 'home_user.html', {'taches': taches})
