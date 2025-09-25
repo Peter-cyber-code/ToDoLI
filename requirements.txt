@@ -1,11 +1,11 @@
 algobox==1.0.3
-asgiref==3.8.1
+asgiref==3.7.1
 -e git+https://github.com/kivy/buildozer.git@ba3b4f43f98b919d14730c0c3a8b9c3567810a9f#egg=buildozer
 certifi==2025.7.9
 charset-normalizer==3.4.2
 Cython==0.29.37
 dj-database-url==3.0.1
-Django==5.2.4
+Django==4.2.11
 django-filter==25.1
 djangorestframework==3.16.1
 docutils==0.21.2
