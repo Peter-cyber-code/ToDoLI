@@ -6,7 +6,7 @@ charset-normalizer==3.4.2
 Cython==0.29.37
 dj-database-url==3.0.1
 Django==4.2.11
-django-filter==25.1
+django-filter==24.3
 djangorestframework==3.16.1
 docutils==0.21.2
 filetype==1.2.0
